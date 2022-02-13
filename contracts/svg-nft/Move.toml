@@ -3,7 +3,7 @@ name = "SimpleNFT"
 version = "0.0.0"
 
 [addresses]
-sender = "0xBC"
+sender = "@0x89324d52d2f57f1c5d5d20f2ace3666b"
 
 [dependencies]
 StarcoinFramework = {git = "https://github.com/starcoinorg/starcoin.git", subdir="vm/stdlib", rev="3e895169a8f8dd883277050bb90645c52a370cee"}
