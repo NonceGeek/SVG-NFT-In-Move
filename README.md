@@ -1,6 +1,6 @@
 # SVG-NFT-in-Move
 
-# #Quick Start
+## Quick Start
 
 **0x00 change acct in all `Move.toml` to your acct**
 
