@@ -1,5 +1,45 @@
 # SVG-NFT-in-Move
 
+# #Quick Start
+
+**0x00 change acct in all `Move.toml` to your acct
+
+**0x01 compile**
+
+```bash
+cd contracts/svg-handler
+mpm release
+```
+
+```bash
+cd contracts/svg-nft
+mpm release
+```
+**0x02 deploy**
+
+```bash
+starcoin% dev deploy [path to svg-handler blob compiled]
+```
+
+```bash
+starcoin% dev deploy [path to svg-nft blob compiled]
+```
+
+**0x03 run test script**
+
+```bash
+starcoin% account execute-function --function [ur-acct]::SVGNFTScripts::test_mint_with_auto_svg -b
+```
+
+log info:
+<img width="671" alt="image" src="https://user-images.githubusercontent.com/12784118/153893698-ff51c566-59c9-49ef-a4ef-8a6d5660953f.png">
+
+SVG decoded:
+<img width="703" alt="image" src="https://user-images.githubusercontent.com/12784118/153896232-8a9fe66b-d28e-4d24-947a-d099b43499bb.png">
+
+
+## Work Details
+
 Do 2 Parts of Work in Move Language for Starcoin Network.
 
 - Impl a SVG Module for the eazy use of SVG in Move Contracts
