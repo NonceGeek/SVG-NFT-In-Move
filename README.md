@@ -2,7 +2,7 @@
 
 # #Quick Start
 
-**0x00 change acct in all `Move.toml` to your acct
+**0x00 change acct in all `Move.toml` to your acct**
 
 **0x01 compile**
 
