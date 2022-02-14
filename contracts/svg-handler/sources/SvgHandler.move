@@ -2,9 +2,6 @@ module  SvgHandler::SvgHandler{
 	use StarcoinFramework::Vector;
     use StarcoinFramework::BCS;
 
-    // const HEADER: vector<u8> = b"<svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" viewBox=\"0 0 350 350\"><style>.base { fill: white; font-family: serif; font-size: 14px; }</style><rect width=\"100%\" height=\"100%\" fill=\"black\" />";
-    // const TAIL: vector<u8> = b"</svg>";
-
     struct SvgGallery has key, store{
         items: vector<SvgResource>,
     }
@@ -32,6 +29,7 @@ module  SvgHandler::SvgHandler{
 
     public fun build_svg(x: u64, y: u64, fill: vector<u8>, payload: vector<u8>) : vector<u8>{
         let result = Vector::empty();
+        // https://www.coder.work/article/2553624
         Vector::append(&mut result, b"<svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" viewBox=\"");
         Vector::append(&mut result, BCS::to_bytes(&x));
         Vector::append(&mut result, b" ");
@@ -39,9 +37,8 @@ module  SvgHandler::SvgHandler{
         Vector::append(&mut result, b"\"><style>.base { fill: white; font-family: serif; font-size: 14px; }</style><rect width=\"100%\" height=\"100%\" fill=\"");
         Vector::append(&mut result, fill);
         Vector::append(&mut result, b"\" />");
-        Vector::append(&mut result, svg_resource);
-        // https://www.coder.work/article/2553624
-        Vector::append(&mut result, TAIL);
+        Vector::append(&mut result, payload);
+        Vector::append(&mut result, b"</svg>");
         result
     }
 
