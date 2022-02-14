@@ -29,7 +29,7 @@ module  SNFT::SVGNFT{
 	const CONTRACT_ACCOUNT:address = @SNFT;
 
 	public fun generate_thing(pos: vector<u8>, id: u64) : vector<u8> {
-		BCS::to_bytes(&Self::generate_thing(pos, id))
+		BCS::to_bytes(&Self::do_generate_thing(pos, id))
 	}
 		
 	public fun do_generate_thing(pos: vector<u8>, id: u64) : u8 {
@@ -39,11 +39,11 @@ module  SNFT::SVGNFT{
 		Vector::pop_back(&mut Hash::sha2_256(payload))
 	}
 
-	public fun build_loot_svg(id: u64): vector<u8> {
+	public fun build_loot_svg(_id: u64): vector<u8> {
 		let payload = Vector::empty();
-		Vector::append(&mut payload, SvgHandler::build_a_line(10, 20, generate_thing(b"HEAD", id)));
-		Vector::append(&mut payload, SvgHandler::build_a_line(10, 40, generate_thing(b"BODY", id)));
-		Vector::append(&mut payload, SvgHandler::build_a_line(10, 60, generate_thing(b"FOOT", id)));
+		Vector::append(&mut payload, SvgHandler::build_a_line(10, 20, b"HEAD"));
+		Vector::append(&mut payload, SvgHandler::build_a_line(10, 40, b"BODY"));
+		Vector::append(&mut payload, SvgHandler::build_a_line(10, 60, b"FOOT"));
 		SvgHandler::build_svg(350, 350, b"green", payload)
 	}
 
@@ -151,7 +151,13 @@ module SNFT::SVGNFTScripts{
 	public(script) fun test_mint_with_auto_svg(sender: signer){
 		let name = b"test loot nft";
 		let description = b"test loot description";
-		SVGNFT::mint_with_auto_svg(&sender, name, description);
+		Self::mint_with_auto_svg(sender, name, description);
+	}
+
+	public(script) fun mint_with_auto_svg(sender: signer, name: vector<u8>, description: vector<u8>){
+		let nft = SVGNFT::mint_with_auto_svg(&sender, name, description);
+		Debug::print(&nft);
+		NFTGallery::deposit(&sender, nft);
 	}
 
 	public(script) fun mint_with_image_data(sender: signer, name: vector<u8>, image_data: vector<u8>, description: vector<u8>){

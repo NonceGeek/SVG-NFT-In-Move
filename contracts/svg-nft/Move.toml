@@ -1,6 +1,6 @@
 [package]
 name = "svg-nft"
-version = "0.0.1"
+version = "0.0.2"
 
 [addresses]
 StarcoinFramework = "0x1"
