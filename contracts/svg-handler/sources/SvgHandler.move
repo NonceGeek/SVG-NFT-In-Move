@@ -32,7 +32,7 @@ module  SvgHandler::SvgHandler{
 
     public fun build_svg(x: u64, y: u64, fill: vector<u8>, payload: vector<u8>) : vector<u8>{
         let result = Vector::empty();
-        Vector::append(&mut result, b"<svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" viewBox=\");
+        Vector::append(&mut result, b"<svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" viewBox=\"");
         Vector::append(&mut result, BCS::to_bytes(&x));
         Vector::append(&mut result, b" ");
         Vector::append(&mut result, BCS::to_bytes(&y));
