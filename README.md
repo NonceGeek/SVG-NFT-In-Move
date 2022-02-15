@@ -94,6 +94,11 @@ Do 2 Parts of Work in Move Language for Starcoin Network.
   - **dApp:** Impl an dApp for this contract.
   - **using b64 encode/decode:** using b64 for image encode/decode.
     
-    
+ 
+## Contracts deployed on Barnard
+  
+SVGHandler: https://stcscan.io/barnard/transactions/detail/0x26311b93f868169efcb0876ebaeea05962e4e690d8d3bc5e4a46cac3c820993a
+  
+SVGNFT: https://stcscan.io/barnard/transactions/detail/0x2aeb0b1ac276c1fafe33d00a2f2eac04577d2c7c2b9c238f03445b99392cc51b
   
   
