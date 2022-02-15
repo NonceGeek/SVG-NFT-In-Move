@@ -66,7 +66,7 @@ Do 2 Parts of Work in Move Language for Starcoin Network.
     
     draw a rect in svg.
   
-- Impl an loot-live example in svg-nft:
+- Impl an loot-like example in svg-nft:
   
   > https://github.com/WeLightProject/SVG-NFT-in-Move/tree/main/contracts/svg-nft
   
