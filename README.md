@@ -58,11 +58,11 @@ Do 2 Parts of Work in Move Language for Starcoin Network.
     
     build a line of word by x,y and word --- just as loot in Ethereum.
     
-  - draw_a_circle(x: u64, y: u64, r: u64, stroke: vector<u8>,  stroke_width: vector<u8>, stroke_fill: vector<u8>) : vector<u8>
+  - draw_a_circle(x: u64, y: u64, r: u64, stroke: vector<u8>,  stroke_width: u64, stroke_fill: vector<u8>) : vector<u8>
     
     draw a circle in svg.
     
-  - fun draw_a_rec(x: u64, y: u64, width: u64, height: u64, stroke: vector<u8>, stroke_width: vector<u8>, stroke_fill: vector<u8>) : vector<u8>
+  - fun draw_a_rec(x: u64, y: u64, width: u64, height: u64, stroke: vector<u8>, stroke_width: u64, stroke_fill: vector<u8>) : vector<u8>
     
     draw a rect in svg.
   
