@@ -25,17 +25,19 @@ starcoin% dev deploy [path to svg-handler blob compiled]
 starcoin% dev deploy [path to svg-nft blob compiled]
 ```
 
-**0x03 run test script**
+**0x03 init contract**
+
+```bash
+starcoin% account execute-function --function 0xabcde::SVGNFTScripts::initialize -b
+```
+**0x04 run test script**
 
 ```bash
 starcoin% account execute-function --function [ur-acct]::SVGNFTScripts::test_mint_with_auto_svg -b
 ```
 
-log info:
-<img width="671" alt="image" src="https://user-images.githubusercontent.com/12784118/153893698-ff51c566-59c9-49ef-a4ef-8a6d5660953f.png">
-
-SVG decoded:
-<img width="703" alt="image" src="https://user-images.githubusercontent.com/12784118/153896232-8a9fe66b-d28e-4d24-947a-d099b43499bb.png">
+log info & SVG decoded:
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/12784118/153996540-47d16ec7-4578-42f2-b2a9-7fc47f3a8957.png">
 
 
 ## Work Details
@@ -89,6 +91,11 @@ Do 2 Parts of Work in Move Language for Starcoin Network.
   - **dApp:** Impl an dApp for this contract.
   - **using b64 encode/decode:** using b64 for image encode/decode.
     
-    
+ 
+## Contracts deployed on Barnard
+  
+SVGHandler: https://stcscan.io/barnard/transactions/detail/0x26311b93f868169efcb0876ebaeea05962e4e690d8d3bc5e4a46cac3c820993a
+  
+SVGNFT: https://stcscan.io/barnard/transactions/detail/0x2aeb0b1ac276c1fafe33d00a2f2eac04577d2c7c2b9c238f03445b99392cc51b
   
   
