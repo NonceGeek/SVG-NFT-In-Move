@@ -27,7 +27,7 @@ module  SvgHandler::SvgHandler{
         Vector::reverse(&mut buf);
         buf
     }
-    
+
     public fun to_string(num: u64):vector<u8> {
         let buf = Vector::empty<u8>();
         let i = num;
@@ -76,7 +76,7 @@ module  SvgHandler::SvgHandler{
         y: u64, 
         r: u64, 
         stroke: vector<u8>,  
-        stroke_width: vector<u8>, 
+        stroke_width: u64, 
         stroke_fill: vector<u8>) : vector<u8> {
         let result = Vector::empty();
         Vector::append(&mut result, b"circle cx=\"");
@@ -88,7 +88,7 @@ module  SvgHandler::SvgHandler{
         Vector::append(&mut result, b"\" stroke=\"");
         Vector::append(&mut result, stroke);
         Vector::append(&mut result, b"\" stroke-width=\"");
-        Vector::append(&mut result, stroke_width);
+        Vector::append(&mut result, Self::to_string(stroke_width));
         Vector::append(&mut result, b"\" fill=\"");
         Vector::append(&mut result, stroke_fill);
         Vector::append(&mut result, b"\" />");
@@ -101,7 +101,7 @@ module  SvgHandler::SvgHandler{
         width: u64,
         height: u64,
         stroke: vector<u8>,
-        stroke_width: vector<u8>, 
+        stroke_width: u64, 
         stroke_fill: vector<u8>) : vector<u8> {
 
         let result = Vector::empty();
@@ -116,7 +116,7 @@ module  SvgHandler::SvgHandler{
         Vector::append(&mut result, b"\" stroke=\"");
         Vector::append(&mut result, stroke);
         Vector::append(&mut result, b"\" stroke-width=\"");
-        Vector::append(&mut result, stroke_width);
+        Vector::append(&mut result, Self::to_string(stroke_width));
         Vector::append(&mut result, b"\" fill=\"");
         Vector::append(&mut result, stroke_fill);
         Vector::append(&mut result, b"\" />");
