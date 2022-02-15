@@ -36,10 +36,7 @@ starcoin% account execute-function --function 0xabcde::SVGNFTScripts::initialize
 starcoin% account execute-function --function [ur-acct]::SVGNFTScripts::test_mint_with_auto_svg -b
 ```
 
-log info:
-<img width="671" alt="image" src="https://user-images.githubusercontent.com/12784118/153893698-ff51c566-59c9-49ef-a4ef-8a6d5660953f.png">
-
-SVG decoded:
+log info & SVG decoded:
 <img width="1438" alt="image" src="https://user-images.githubusercontent.com/12784118/153996540-47d16ec7-4578-42f2-b2a9-7fc47f3a8957.png">
 
 
