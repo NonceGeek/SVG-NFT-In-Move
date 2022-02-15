@@ -99,3 +99,6 @@ SVGHandler: https://stcscan.io/barnard/transactions/detail/0x26311b93f868169efcb
 SVGNFT: https://stcscan.io/barnard/transactions/detail/0x2aeb0b1ac276c1fafe33d00a2f2eac04577d2c7c2b9c238f03445b99392cc51b
   
   
+## Link to Introduction Video
+  
+> https://youtu.be/wYB62s0ze6M
