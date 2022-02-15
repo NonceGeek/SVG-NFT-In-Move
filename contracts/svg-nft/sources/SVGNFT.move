@@ -29,21 +29,22 @@ module  SNFT::SVGNFT{
 	const CONTRACT_ACCOUNT:address = @SNFT;
 
 	public fun generate_thing(pos: vector<u8>, id: u64) : vector<u8> {
-		BCS::to_bytes(&Self::do_generate_thing(pos, id))
+		Self::do_generate_thing(pos, id)
 	}
 		
-	public fun do_generate_thing(pos: vector<u8>, id: u64) : u8 {
+	public fun do_generate_thing(pos: vector<u8>, id: u64) : vector<u8> {
 		let payload = Vector::empty();
 		Vector::append(&mut payload, pos);
 		Vector::append(&mut payload, BCS::to_bytes(&id));
-		Vector::pop_back(&mut Hash::sha2_256(payload))
+		SvgHandler::to_string_u8(Vector::pop_back(&mut Hash::sha2_256(payload)))
+
 	}
 
-	public fun build_loot_svg(_id: u64): vector<u8> {
+	public fun build_loot_svg(id: u64): vector<u8> {
 		let payload = Vector::empty();
-		Vector::append(&mut payload, SvgHandler::build_a_line(10, 20, b"HEAD"));
-		Vector::append(&mut payload, SvgHandler::build_a_line(10, 40, b"BODY"));
-		Vector::append(&mut payload, SvgHandler::build_a_line(10, 60, b"FOOT"));
+		Vector::append(&mut payload, SvgHandler::build_a_line(10, 20, generate_thing(b"HEAD", id)));
+		Vector::append(&mut payload, SvgHandler::build_a_line(10, 40, generate_thing(b"BODY", id)));
+		Vector::append(&mut payload, SvgHandler::build_a_line(10, 60, generate_thing(b"FOOT", id)));
 		SvgHandler::build_svg(350, 350, b"green", payload)
 	}
 
